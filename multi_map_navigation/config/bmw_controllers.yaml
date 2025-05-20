@@ -1,0 +1,55 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    diff_drive_controller:
+      type: diff_drive_controller/DiffDriveController
+
+
+joint_state_broadcaster:
+  ros__parameters:
+    publish_rate: 50.0
+
+
+diff_drive_controller:
+  ros__parameters:
+    left_wheel_names:  ["LF_wheel_joint", "LB_wheel_joint"]
+    right_wheel_names: ["RF_wheel_joint", "RB_wheel_joint"]
+
+    wheel_separation: 0.6
+    wheel_radius:     0.2
+    wheels_per_side:  2
+
+    base_frame_id:   chassis      # <- make sure this exists
+    odom_frame_id:   odom
+    enable_odom_tf:  true
+
+    use_stamped_vel:      false
+    cmd_vel_timeout:      0.5
+    publish_rate:         50.0
+    velocity_rolling_window_size: 10
+
+    open_loop: false
+    position_feedback: true
+
+    linear:
+      x:
+        has_velocity_limits:     true
+        max_velocity:            1.5
+        min_velocity:           -1.5
+        has_acceleration_limits: true
+        max_acceleration:        2.5
+
+    angular:
+      z:
+        has_velocity_limits:     true
+        max_velocity:            3.0
+        has_acceleration_limits: true
+        max_acceleration:        3.0
+
+    pose_covariance_diagonal:  [0.001, 0.001, 99999.0, 99999.0, 99999.0, 0.03]
+    twist_covariance_diagonal: [0.001, 0.001, 99999.0, 99999.0, 99999.0, 0.03]
