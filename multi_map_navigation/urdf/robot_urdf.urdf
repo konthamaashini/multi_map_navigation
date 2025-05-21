@@ -313,33 +313,4 @@
     </joint>
   </ros2_control>
 
-  <!-- Gazebo ROS2 Control Plugin -->
-  <gazebo>
-    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-      <robot_param>robot_description</robot_param>
-      <robot_param_node>robot_state_publisher</robot_param_node>
-      <parameters>$(find robot_description)/config/my_controllers.yaml</parameters>
-    </plugin>
-  </gazebo>
-
-  <!-- Skid Steer Drive Plugin -->
-  <gazebo>
-    <plugin name="skid_steer_drive" filename="libgazebo_ros_diff_drive.so">
-      <update_rate>500</update_rate>
-      <num_wheel_pairs>2</num_wheel_pairs>
-      <left_joint>LF_wheel_joint</left_joint>
-      <right_joint>RF_wheel_joint</right_joint>
-      <left_joint>LB_wheel_joint</left_joint>
-      <right_joint>RB_wheel_joint</right_joint>
-      <wheel_separation>0.6</wheel_separation>
-      <wheel_diameter>0.4</wheel_diameter>
-      <max_wheel_torque>200</max_wheel_torque>
-      <max_wheel_acceleration>10.0</max_wheel_acceleration>
-      <odometry_frame>odom</odometry_frame>
-      <robot_base_frame>chassis</robot_base_frame>
-      <publish_odom>true</publish_odom>
-      <publish_odom_tf>true</publish_odom_tf>
-      <publish_wheel_tf>true</publish_wheel_tf>
-    </plugin>
-  </gazebo>
 </robot>

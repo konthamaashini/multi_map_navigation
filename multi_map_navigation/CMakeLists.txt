@@ -57,6 +57,7 @@ install(
     worlds
     config         # ← controllers.yaml lives here
     rviz
+    config
   DESTINATION share/${PROJECT_NAME}/
 )
 

@@ -21,16 +21,16 @@ diff_drive_controller:
     right_wheel_names: ["RF_wheel_joint", "RB_wheel_joint"]
 
     wheel_separation: 0.6
-    wheel_radius:     0.2
-    wheels_per_side:  2
+    wheel_radius:      0.2
+    wheels_per_side:   2
 
     base_frame_id:   chassis      # <- make sure this exists
     odom_frame_id:   odom
     enable_odom_tf:  true
 
-    use_stamped_vel:      false
-    cmd_vel_timeout:      0.5
-    publish_rate:         50.0
+    use_stamped_vel:       false
+    cmd_vel_timeout:       0.5
+    publish_rate:          50.0
     velocity_rolling_window_size: 10
 
     open_loop: false
